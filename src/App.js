@@ -1,23 +1,17 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import Menu from './component/Menu';
+import Quiz from './component/Quiz';
+import Score from './component/Score';
 import './App.css';
 
 function App() {
+  const [gameState, setGameState] = useState("menu");
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Web Development Quiz</h1>
+      {gameState === "menu" && <Menu />}
+      {gameState === "quiz" && <Quiz />}
+      {gameState === "score" && <Score />}
     </div>
   );
 }
